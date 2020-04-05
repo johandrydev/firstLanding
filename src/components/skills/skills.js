@@ -77,7 +77,10 @@ const Skills = () => (
                         return (
                             <div key={ind}>
                                 <span>{title}</span>
-                                <div className="bar-wrap"><span className="bar-fill" style={styleSkill}></span></div>
+                                <div className="bar-wrap">
+                                    <span className="bar-fill" style={styleSkill}></span>
+                                    <div className="percentage">{width}</div>
+                                </div>
                             </div>
                         )
                     })}
@@ -113,6 +116,19 @@ const Section = styled.section`
 
             > div {
                 margin: .5rem 0;
+
+                :hover {
+                    .bar-fill {
+                        transform: scaleY(1.5)
+                    }
+
+                    .percentage {
+                        display: flex;
+                        justify-content: center;
+                        font-size: small;
+                        margin: .2rem;
+                    }
+                }
             }
         }
     }
@@ -122,14 +138,19 @@ const Section = styled.section`
         border-radius: 10px;
         margin-bottom: 10px;
         height: 5px;
+
+        .bar-fill {
+            border-radius: 10px;
+            display: block;
+            height: 5px;
+            width: 0px;
+        }
+
+        .percentage {
+            display: none;
+        }
     }
 
-    .bar-fill {
-        border-radius: 10px;
-        display: block;
-        height: 5px;
-        width: 0px;
-    }
 
     @media screen and (max-width: 1200px){
         .div-skill .div-skill-bar {

@@ -36,24 +36,44 @@ const contenServices = [
  */
 const Services = () => {
     const divServices = useRef()
+    // states
     const [ scroll, changeScroll ] = useState(window.scrollY)
+    const [ animation, changeAnimation ] = useState(true)
 
+    /**
+     * Change state from Scroll
+     */
     const handleScrollChange = () => {
         changeScroll(window.scrollY)
     }
     
+    /**
+     * Allows you to add animation to the images of the services
+     */
     useEffect(() => {
-        console.log('Por donde va el scroll', window.scrollY)
-        console.log('Tamaño de la pantalla', window.screen.height)
-        console.log('donde deveria tener la animacion', divServices.current.offsetTop - (window.screen.height / 1.3));
-        
-        
+        const showAnimation = divServices.current.offsetTop - (window.innerHeight / 1.4);
+
+        if (window.scrollY >= showAnimation && animation) {
+            for (const child of divServices.current.children) {
+                // add animation from figure
+                child.firstElementChild.style.animation = 'showServices 1s ease';
+            }
+
+            changeAnimation(false)
+        }
+
+        if (window.scrollY === 0) {
+            changeAnimation(true)
+            for (const child of divServices.current.children) {
+                child.firstElementChild.style.animation = '';
+            }
+        }
         window.addEventListener('scroll', handleScrollChange)
 
         return () => {
             window.removeEventListener('scroll', handleScrollChange)
         }
-    }, [scroll])
+    }, [scroll, animation])
 
     return (
         <Section>
@@ -105,6 +125,22 @@ const Section = styled.section`
         flex-direction: column;
         align-items: center;
         text-align: center;
+
+        figure {
+            transition: transform 300ms
+        }
+
+        :hover {
+            figure {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    @keyframes showServices {
+        0% {
+            transform: translate(-60%, 0)
+        }
     }
 
     @media screen and (max-width: 1200px){

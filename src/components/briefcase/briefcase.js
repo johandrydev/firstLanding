@@ -15,7 +15,7 @@ const Briefcase = () => (
             <p>To see personal projects and organizations where I have worked and collaborated with projects (Ecommerce, App Webs, Mobile and Blockchain Solutions)</p>
         </div>
         <div>
-            <a href="https://github.com/takeodev" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/johandrydev" target="_blank" rel="noopener noreferrer">
                 <Button style={{
                     background: 'rgba(9, 9, 121, 1)',
                     color: 'white'
@@ -24,7 +24,7 @@ const Briefcase = () => (
                 </Button>
             </a>
 
-            <a href="https://github.com/takeodev" target="_blank" rel="noopener noreferrer">
+            <a href="https://gitlab.com/johandrydev" target="_blank" rel="noopener noreferrer">
                 <Button style={{
                     background: 'rgba(9, 9, 121, 1)',
                     color: 'white'

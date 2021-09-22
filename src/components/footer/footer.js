@@ -71,5 +71,6 @@ const Section = styled.section`
     .div-icons figure {
         margin: 1rem;
         width: 3rem;
+        cursor: pointer;
     }
 `

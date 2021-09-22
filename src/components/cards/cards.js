@@ -48,7 +48,7 @@ const Section = styled.section`
     grid-area: cards;
     padding: 2rem;
     display: flex;
-    height: 20rem;
+    height: 18rem;
 
     .img-cards {
         width: 10rem;
@@ -59,6 +59,11 @@ const Section = styled.section`
         grid-template-rows: auto 3rem;
         height: 100%;
         width: 12rem;
+        transition: transform 200ms;
+
+        :hover {
+            transform: scale(1.03);
+        }
     }
 
     .card:nth-child(n + 2) {

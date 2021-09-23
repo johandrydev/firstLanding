@@ -37,8 +37,8 @@ const contenServices = [
 const Services = () => {
     const divServices = useRef()
     // states
-    const [ scroll, changeScroll ] = useState(window.scrollY)
-    const [ animation, changeAnimation ] = useState(true)
+    const [scroll, changeScroll] = useState(window.scrollY)
+    const [animation, changeAnimation] = useState(true)
 
     /**
      * Change state from Scroll
@@ -46,7 +46,7 @@ const Services = () => {
     const handleScrollChange = () => {
         changeScroll(window.scrollY)
     }
-    
+
     /**
      * Allows you to add animation to the images of the services
      */
@@ -79,17 +79,17 @@ const Services = () => {
         <Section>
             <h3 className="title-section mt-3">Services offered</h3>
             <div className="div-services" ref={divServices}>
-                { contenServices.map( ({title, paragraph, img}, index) => (
+                {contenServices.map(({ title, paragraph, img }, index) => (
                     <div key={index}>
                         <figure style={{
                             height: 120
                         }}>
-                            <img src={ img } alt="" width="100" height="100" />
+                            <img src={img} alt="" width="100" height="100" />
                         </figure>
-                        <h4>{ title }</h4>
-                        <p>{ paragraph }</p>
+                        <h4>{title}</h4>
+                        <p>{paragraph}</p>
                     </div>
-                )) }
+                ))}
             </div>
         </Section>
     )
@@ -101,21 +101,25 @@ export default Services
  */
 const Section = styled.section`
     grid-area: services;
-    background: linear-gradient(180deg,rgba(230,230,230,1) 0%,rgba(255,255,255,1) 13%);;
-    padding: 3rem;
-    display: flex;
+    background: linear-gradient(180deg,rgba(230,230,230,1) 0%,rgba(255,255,255,1) 13%);
+    display: grid;
     flex-direction: column;
-    justify-content: space-around;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas:
+        ".      title       title       title       title       ."
+        ".      service     service     service     service       .";
 
     .div-services {
+        grid-area: service;
         display: flex;
-        justify-content: space-around;
         flex-wrap: wrap;
-        height: 80%;
+        justify-content: space-around;
+        margin-bottom: 3rem !important;
     }
 
     .mt-3 {
-        margin-top: 3rem !important;
+        grid-area: title;
+        margin-top: 5rem !important;
     }
 
     .div-services div {

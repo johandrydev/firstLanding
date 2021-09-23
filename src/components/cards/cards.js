@@ -13,10 +13,6 @@ const cards = [
         title: 'Curriculum Vitae',
         img: imgCV
     },
-    {
-        title: 'Projects',
-        img: imgProjects
-    }
 ]
 
 /**
@@ -46,9 +42,12 @@ export default Cards
  */
 const Section = styled.section`
     grid-area: cards;
+    min-height: 50vh;
     padding: 2rem;
     display: flex;
     height: 18rem;
+    align-items: center;
+    justify-content: center;
 
     .img-cards {
         width: 10rem;
@@ -57,7 +56,7 @@ const Section = styled.section`
     .card {
         display: grid;
         grid-template-rows: auto 3rem;
-        height: 100%;
+        height: 220px;
         width: 12rem;
         transition: transform 200ms;
 
@@ -112,7 +111,7 @@ const Section = styled.section`
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        height: 36rem;
+        height: 10rem;
 
         .card {
             display: grid;

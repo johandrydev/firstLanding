@@ -3,9 +3,10 @@ import React from 'react'
 import styled from 'styled-components'
 // Images
 import imgCV from '../../assets/images/undraw_online_cv_qy9w.svg'
-import imgProjects from '../../assets/images/undraw_resume_folder_2_arse.svg'
 // Components 3rd
 import { Card, CardContent } from '@material-ui/core'
+
+import curriculum from '../../assets/files/CVINGLES.pdf'
 
 // data from cards
 const cards = [
@@ -18,23 +19,27 @@ const cards = [
 /**
  * Funtional Component to render Cards section
  */
-const Cards = () => (
-    <Section>
-        {cards.map(({title, img}, index) => (
-            <Card className="card" key={index}>
-                <CardContent className="card-content">
-                    <div>
-                        <img src={img} alt="CV" />
+const Cards = () => {
+    const redirect = () => window.open(curriculum, '_blank');
+
+    return (
+        <Section>
+            {cards.map(({title, img}, index) => (
+                <Card className="card" key={index}>
+                    <CardContent className="card-content">
+                        <div>
+                            <img src={img} alt="CV" />
+                        </div>
+                        <h4>{title}</h4>
+                    </CardContent>
+                    <div className="action-card" onClick={redirect}>
+                        <span>View...</span>
                     </div>
-                    <h4>{title}</h4>
-                </CardContent>
-                <div className="action-card">
-                    <span>View...</span>
-                </div>
-            </Card>
-        ))}
-    </Section>
-)
+                </Card>
+            ))}
+        </Section>
+    )
+}
 export default Cards
 
 /**

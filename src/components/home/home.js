@@ -36,8 +36,8 @@ const Div = styled.div`
         ".      header     header      header      header       ."
         ".      cards       cards       briefcase  briefcase    ."
         "services      services   services    services    services     services"
-        ".      skills     skills      skills      skills       ."
-        ".      footer     footer      footer      footer       .";
+        "skills      skills     skills      skills      skills       skills"
+        "footer      footer     footer      footer      footer       footer";
 
     .title-section {
         margin: 1rem auto;
@@ -51,8 +51,8 @@ const Div = styled.div`
         ".      briefcase  briefcase   briefcase   briefcase    ."
         ".      cards      cards       cards       cards        ."
         "services      services   services    services    services     services"
-        ".      skills     skills      skills      skills       ."
-        ".      footer     footer      footer      footer       .";
+        "skills      skills     skills      skills      skills       skills"
+        "footer      footer     footer      footer      footer       footer";
     }
 
     @media screen and (max-width: 600px){

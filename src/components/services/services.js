@@ -115,30 +115,30 @@ const Section = styled.section`
         flex-wrap: wrap;
         justify-content: space-around;
         margin-bottom: 3rem !important;
+
+        div {
+            margin: 1rem;
+            width: 15rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+
+            figure {
+                transition: transform 300ms
+            }
+
+            :hover {
+                figure {
+                    transform: scale(1.1);
+                }
+            }
+        }
     }
 
     .mt-3 {
         grid-area: title;
         margin-top: 5rem !important;
-    }
-
-    .div-services div {
-        margin: 1rem;
-        width: 15rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-
-        figure {
-            transition: transform 300ms
-        }
-
-        :hover {
-            figure {
-                transform: scale(1.1);
-            }
-        }
     }
 
     @keyframes showServices {

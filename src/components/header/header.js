@@ -16,7 +16,7 @@ const Header = () => {
                     <div className="header-text">
                         <h2>Johandry Mora</h2>
                         <h3 className="title-section">Informatics Engineer</h3>
-                        <p>I am passionate about application development and learning about new technologies but creating quality software and improving every day is my main objective</p>
+                        <p>I am passionate about application development and learning about new technologies, but creating quality software and improving every day is my main objective</p>
                     </div>
                     <figure className="header-img">
                         <img src={imgLaptop} alt="laptop" width="100%" />

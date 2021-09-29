@@ -65,11 +65,11 @@ const contenSkills = [
  */
 const Skills = () => (
     <Section>
-        <h3 className="title-section">Skills</h3>
+        <h3 className="div-title-skill title-section">Skills</h3>
         <div className="div-skill">
-            {contenSkills.map( (skill, index) => (
+            {contenSkills.map((skill, index) => (
                 <div className="div-skill-bar" key={index} >
-                    {skill.map(({title, background, width}, ind) => {
+                    {skill.map(({ title, background, width }, ind) => {
                         const styleSkill = {
                             backgroundColor: background,
                             width: width
@@ -99,19 +99,28 @@ const Section = styled.section`
     background: rgb(255,255,255);
     background: linear-gradient(180deg,rgba(255,255,255,1) 0%,rgba(230,230,230,1) 17%);
     padding: 3rem;
-    display: flex;
+    display: grid;
     flex-direction: column;
-    justify-content: space-around;
-    margin: 0 0 4rem 0;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas:
+        ".      titleSkill      titleSkill      titleSkill      titleSkill      ."
+        ".      skill           skill           skill           skill           .";
+
+    .div-title-skill {
+        grid-area: titleSkill;
+    }
 
     .div-skill {
-        display: flex;
+        grid-area: skill;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 2rem;
+        margin-bottom: 3rem;
 
         .div-skill-bar {
             display: flex;
             flex-direction: column;
             justify-content: space-around;
-            padding: 0 5rem;
             width: 100%;
 
             > div {
@@ -153,24 +162,25 @@ const Section = styled.section`
 
 
     @media screen and (max-width: 1200px){
-        .div-skill .div-skill-bar {
+        .div-skill {
             padding: 0 3rem;
         }
     }
 
     @media screen and (max-width: 1000px){
-        .div-skill .div-skill-bar {
-            padding: 0 1rem;
+        grid-template-areas:
+        ".      titleSkill      titleSkill      titleSkill      titleSkill      ."
+        "skill      skill           skill           skill           skill       skill";
+        .div-skill {
+            padding: 0 3rem;
         }
     }
 
     @media screen and (max-width: 650px){
         .div-skill {
-            flex-direction: column;
-            margin-bottom: 1rem;
-        }
-        .div-skill .div-skill-bar {
-            padding: 0;
+            padding: 0 1rem;
+            grid-template-columns: 1fr;
+            grid-gap: 0;
         }
     }
 `

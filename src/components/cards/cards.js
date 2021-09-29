@@ -3,9 +3,10 @@ import React from 'react'
 import styled from 'styled-components'
 // Images
 import imgCV from '../../assets/images/undraw_online_cv_qy9w.svg'
-import imgProjects from '../../assets/images/undraw_resume_folder_2_arse.svg'
 // Components 3rd
 import { Card, CardContent } from '@material-ui/core'
+
+import curriculum from '../../assets/files/CVINGLES.pdf'
 
 // data from cards
 const cards = [
@@ -13,32 +14,32 @@ const cards = [
         title: 'Curriculum Vitae',
         img: imgCV
     },
-    {
-        title: 'Projects',
-        img: imgProjects
-    }
 ]
 
 /**
  * Funtional Component to render Cards section
  */
-const Cards = () => (
-    <Section>
-        {cards.map(({title, img}, index) => (
-            <Card className="card" key={index}>
-                <CardContent className="card-content">
-                    <div>
-                        <img src={img} alt="CV" />
+const Cards = () => {
+    const redirect = () => window.open(curriculum, '_blank');
+
+    return (
+        <Section>
+            {cards.map(({title, img}, index) => (
+                <Card className="card" key={index}>
+                    <CardContent className="card-content">
+                        <div>
+                            <img src={img} alt="CV" />
+                        </div>
+                        <h4>{title}</h4>
+                    </CardContent>
+                    <div className="action-card" onClick={redirect}>
+                        <span>View...</span>
                     </div>
-                    <h4>{title}</h4>
-                </CardContent>
-                <div className="action-card">
-                    <span>View...</span>
-                </div>
-            </Card>
-        ))}
-    </Section>
-)
+                </Card>
+            ))}
+        </Section>
+    )
+}
 export default Cards
 
 /**
@@ -46,9 +47,12 @@ export default Cards
  */
 const Section = styled.section`
     grid-area: cards;
+    min-height: 50vh;
     padding: 2rem;
     display: flex;
     height: 18rem;
+    align-items: center;
+    justify-content: center;
 
     .img-cards {
         width: 10rem;
@@ -57,7 +61,7 @@ const Section = styled.section`
     .card {
         display: grid;
         grid-template-rows: auto 3rem;
-        height: 100%;
+        height: 220px;
         width: 12rem;
         transition: transform 200ms;
 
@@ -112,7 +116,7 @@ const Section = styled.section`
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        height: 36rem;
+        height: 10rem;
 
         .card {
             display: grid;
